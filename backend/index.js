@@ -18,13 +18,10 @@ const URI = process.env.MongoDBURI;
 
 // connect to mongoDB
 try {
-    mongoose.connect(URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-    console.log("Connected to mongoDB");
+    mongoose.connect(URI);  // No options needed in the latest driver version
+    console.log("Connected to MongoDB");
 } catch (error) {
-    console.log("Error: ", error);
+    console.error("Error connecting to MongoDB:", error);
 }
 
 // defining routes
